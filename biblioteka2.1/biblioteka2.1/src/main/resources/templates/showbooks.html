@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+<body>
+<p align="center"> <h2>Book list</h2></p> <br>
+
+<table  class="table table-striped">
+    <tr><th>Nazwa</th><th>Rodzaj</th><th>Wydawca</th><th>Ilość stron</th><th>Author</th><th>kasuj ?</th><th>aktualizuj</th><</tr>
+
+    <tr  th:each="wpis: ${books}">
+<!--        <td th:text="${wpis.idbook}">Id</td>-->
+        <td th:text="${wpis.title}">Nazwa</td>
+        <td th:text="${wpis.genre}">Rodzaj</td>
+        <td th:text="${wpis.publisher}">Wydawca</td>
+        <td th:text="${wpis.pages}">Ilość stron</td>
+        <td th:text="${wpis.author}">Author</td>
+
+
+        <td>
+            <a href="#" th:href="@{/kasuj(id=${wpis.idbook})}" class="btn btn-danger">
+
+                <i class="fa fa-trash-o fa-lg"></i>Kasuj</a></td>
+
+
+        <td>
+            <a href="#" th:href="@{/przekieruj(id=${wpis.idbook})}" class="btn btn-primary">
+
+                <i class="fa fa-trash-o fa-lg"></i>Aktualizuj</a></td>
+
+    </tr>
+
+</table>
+
+<table class="table table-striped">
+    <tr><td> Wyszukaj wg nazwy</td>
+        <td><form action="http://localhost:8080/wyszukaj"><input name="title"></form></td>
+        <td><input type="submit"></td></tr>
+
+</table>
+
+</body>
+</html>

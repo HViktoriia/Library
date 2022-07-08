@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Aktualizuj</title>
+    </head>
+<body>
+<form   th:action="@{/updateauthor}" th:object="${author}">
+
+    <table>
+        <tr>
+            <td>Podaj imię </td>
+            <td><input name="authorname" th:field="*{authorname}"> </td>
+        </tr>
+        <tr>
+            <td>Podaj nazwisko</td>
+            <td> <input name="authorsurname" th:field="*{authorsurname}"> </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit"></td>
+    </table>
+</form>
+</body>
+</html>

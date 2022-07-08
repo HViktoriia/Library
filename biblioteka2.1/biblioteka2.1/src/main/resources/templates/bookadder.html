@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie książek</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form action="/bookadder">
+    <table>
+        <tr>
+            <td>Podaj nazwę książki</td>
+            <td><input name="title"> </td>
+        </tr>
+        <tr>
+            <td>Podaj rodzaj</td>
+            <td><input name="genre"></td>
+        </tr>
+        <tr>
+            <td>Podaj wydawcę</td>
+            <td><input name="publisher"></td>
+        </tr>
+        <tr>
+            <td>Podaj ilość stron</td>
+            <td><input name="pages"></td>
+        </tr>
+        <tr>
+            <div class="col-lg-3" th:object="${author}">
+                <select class="form-control" id="idauthor" name="idauthor">
+                    <option value="">Podaj authora</option>
+                    <option th:each="author : ${author}"
+                            th:value="${idauthor}"
+                            th:text="${author.authorname}+' : '+${author.authorsurname}"></option>
+                </select>
+            </div>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit"> </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
